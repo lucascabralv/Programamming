@@ -34,9 +34,10 @@ void jogo(int nivel){
     int nSecreto = rand() % randMax;
     bool acertou = false;
     double pontos = 1000.00;
-    while(nTentativa < maxTentativas){
+    while(nTentativa < maxTentativas && acertou == false){
         system("clear || cls");
-        cout << "Qual o seu chute? " << endl;
+        cout << "Tentativas restante: " << maxTentativas - nTentativa << endl;
+        cout << "• Qual o seu chute? " << endl;
         cin >> chute;
         if(chute == nSecreto){
             cout << "Parabéns! Você acertou o número secreto!" << endl;
@@ -44,7 +45,6 @@ void jogo(int nivel){
             cout << fixed;
             cout << "Sua pontuação é: " << pontos << endl << endl;
             acertou = true;
-            nTentativa = maxTentativas;
             cout << "Aperte enter para continuar...";
             getchar();
             cin.ignore();
@@ -67,8 +67,9 @@ void jogo(int nivel){
     if(acertou == false){
         system("clear || cls");
         cout << "-> Suas tentativas acabaram!" << endl;
-        cout << "O número secreto era " << nSecreto << endl << endl;
-        cout << "Aperte enter para continuar...";
+        cout << "O número secreto era " << nSecreto << endl;
+
+        cout << "\nAperte enter para continuar...";
         getchar();
         cin.ignore();
     }
