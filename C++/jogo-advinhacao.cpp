@@ -1,7 +1,7 @@
 #include <iostream>
 #include <math.h>
-#include <cstdlib> // Funcao srand
-#include <ctime> // Funcao time
+#include <cstdlib> // Funcao srand gera seed para o random
+#include <ctime> // Funcao time 
 
 using namespace std;
 
@@ -36,13 +36,13 @@ void jogo(int nivel){
     double pontos = 1000.00;
     while(nTentativa < maxTentativas){
         system("clear || cls");
-        cout << "Qual o seu chute? " << nSecreto << endl;
+        cout << "Qual o seu chute? " << endl;
         cin >> chute;
         if(chute == nSecreto){
             cout << "Parabéns! Você acertou o número secreto!" << endl;
             cout.precision(2);
             cout << fixed;
-            cout << "Sua pontuação é: " << pontos << endl;
+            cout << "Sua pontuação é: " << pontos << endl << endl;
             acertou = true;
             nTentativa = maxTentativas;
             cout << "Aperte enter para continuar...";
@@ -52,14 +52,14 @@ void jogo(int nivel){
             cout << "O número que chutou está abaixo do número secreto" << endl;
             nTentativa++;
             pontos -= abs((nSecreto - chute)/ (2.0 * pow(10, nivel-1)));
-            cout << "Aperte enter para continuar...";
+            cout << "\nAperte enter para continuar...";
             getchar();
             cin.ignore();
         } else if(chute > nSecreto){
             cout << "O número que chutou está acima do número secreto" << endl;
             nTentativa++;
             pontos -= abs((nSecreto - chute) / (2.0 * pow(10, nivel-1)));
-            cout << "Aperte enter para continuar...";
+            cout << "\nAperte enter para continuar...";
             getchar();
             cin.ignore();
         }
